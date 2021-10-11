@@ -1,0 +1,11 @@
+[package]
+name = "wasm-browser-extension-test"
+version = "0.0.0"
+edition = "2018"
+publish = false
+
+[dependencies]
+
+[profile.release]
+lto = true
+opt-level = 'z'
