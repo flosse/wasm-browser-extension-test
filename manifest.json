@@ -1,21 +1,19 @@
 {
-  "manifest_version": 2,
   "name": "Test Extension",
   "version": "0.0",
   "description": "Just load and execute a WASM file on every page",
+  "manifest_version": 2,
 
-  "permissions": [ "https://*/*" ],
-
-  "content_scripts": [
-    {
+  "background": {
+      "persistent": false,
+      "scripts": [ "worker_proxy.js" ]
+  },
+  "content_scripts": [{
       "matches": [ "*://*/*" ],
-      "js": [ "lib.js" ]
-    }
-  ],
-
-  "web_accessible_resources": [
-    "lib.wasm"
-  ],
-
-  "content_security_policy": "script-src 'self' 'wasm-eval'; object-src 'self';"
+      "js": [
+          "worker_proxy.js",
+          "lib.js"
+      ]
+  }],
+  "web_accessible_resources": [ "worker_proxy.html", "lib.wasm" ]
 }
