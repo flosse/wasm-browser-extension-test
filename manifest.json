@@ -12,8 +12,8 @@
       "matches": [ "*://*/*" ],
       "js": [
           "worker_proxy.js",
-          "lib.js"
+          "content-script.js"
       ]
   }],
-  "web_accessible_resources": [ "worker_proxy.html", "lib.wasm" ]
+  "web_accessible_resources": [ "worker_proxy.html", "pkg/lib_bg.wasm" ]
 }
